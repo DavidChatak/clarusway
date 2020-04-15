@@ -1,0 +1,9 @@
+myname= "David"
+password="Clarus@125/"
+
+entered_name = input("enter a name to learn password:")
+if entered_name.lower()==myname.lower():
+    print(f"Hello, {entered_name}! The password is :{password}")
+else:
+    print(f"Hello, {entered_name}! See you later.")
+    

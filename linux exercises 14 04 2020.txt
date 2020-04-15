@@ -1,0 +1,153 @@
+ Example1 (shell operations)(BEGINNER):
+1. Learn which shell is default on your system
+2. Learn which shell you are using currently
+3. Learn the path to your current shell
+4. Display all shells
+5. Change your shell to `sh` shell
+6. Change your shell to bash
+7. Customize & Color your command prompt
+
+
+
+
+
+
+
+
+
+
+1. $SHELL (Amazon Linux 2 AMI has $SHELL variable)
+2. echo $0
+3. which bash
+4. cat /etc/shells
+5. /bin/sh
+6. /bin/bash
+7a. PS1="\[\033[44m\]\u@\h:\w$\[\033[00m\]"
+7b. PS1="\[\033[44m\]\[\033[1;37m\]john@clarusway\[\033[45m\]\[\033[1;37m\](\w)\[\033[44m\]:\[\033[00m\] "
+
+
+Example2 (package managers)(BEGINNER):
+1. Learn Which Linux Distribution You Are Using.
+2. Determine your package manager
+3. Get the latest package lists from the repositories
+4. Be sure that the latest versions of your  packages are installed.
+5. Check if there is a game named "bastet" (For AWS EC2 search for Apache server: "httpd")
+6. Install "bastet" (For AWS EC2 "httpd")
+7. Uninstall "bastet" (For AWS EC2 "httpd")
+1. cat /etc/os-release
+2. APT (Advanced Package Tool) for debian
+   RPM (Red Hat Package Manager) for centos/fedora/redhat
+     - YUM (Yellowdog Updater Modified) 
+     - DNF – Dandified Yum
+3. sudo apt-get/yum update
+   sudo apt update
+4. sudo apt-get upgrade
+   sudo apt upgrade
+5. apt-cache search bastet  
+   apt search bastet
+   yum search httpd
+6. sudo apt install bastet
+   sudo yum instal httpd
+7. sudo apt remove bastet
+   yum remove httpd
+
+Example3 (control operators)(INTERMEDIATE):
+1. Execute the pwd command twice.
+2. Move to home directory. Execute ls after "cd /etc", but only if "cd /etc" did not error.
+3. Move to home directory. Execute "cd /etc" after "cd etc", but only if "cd etc" fails.
+4. Change directory to your home directory. Echo `it worked` when touch test1 works, and echo `it failed` when the touch failed.
+5. Try step-4 within the /bin directory
+6. Execute sleep 200 in background (do not wait for it to finish).
+7. Remove the file test1. Your command line should print 'success' if test1 is removed, and print 'failed' if there was a problem.
+8. Use echo to display:
+  "Hello "strange" 'characters' \a * [ } ~ \"
+1. pwd ; pwd
+2. cd ~
+   cd /etc && ls
+3. cd ~
+   cd etc || cd /etc
+4. cd ~; touch test1 && echo it worked || echo it failed
+5. cd /bin; touch test1 && echo it worked || echo it failed
+6. sleep 200 &
+7. rm test1 && echo success || echo failed
+8. echo "Hello \"strange\" 'characters' \\a * [ } ~ \\"
+
+Example4 (shell variables)(INTERMEDIATE):
+1. Use echo to display Hello followed by your username. (use a bash variable!)
+2. Create a variable "myCase1" with a value of "Not exported".
+3. Create a variable "myCase2" using export with a value of "Exported".
+4. List all current shell variables and check if myCase1 and myCase2 exist
+5. List all exported shell variables and check if myCase1 and myCase2 exist
+6. Try to display  myCase1 and myCase2 in a new interactive child shell. 
+7. Display your path vairable
+8. Add ~/test/script directory to your path.
+1. echo Hello $USER
+2. myCase1="Not exported"
+3. export myCase2="Exported"
+4. set | grep myCase
+5. env | grep myCase
+6. bash 
+   echo $myCase1 
+   echo $myCase2
+7. echo $PATH
+8. export PATH=$PATH:~/test/script
+
+Example-5 (Bash Scripting) (INTERMEDIATE):
+Create a script which gets a number from the user and prints whether the value is bigger or smaller than/equal to 5.
+nano my_script.sh
+chmod +x my_script.sh
+#! /bin/bash
+clear
+echo "enter a number:"
+read  st1
+if [ $st1 -eq 5  ]
+then
+   echo "$st1 is equal to 5"
+elif (( $st1 < 5 ))
+then
+   echo "$st1 is smaller than 5"
+else
+ echo "$st1 is bigger than 5"
+fi
+
+Example-6 (User Management) (INTERMEDIATE):
+1. Create a user account named clarus1, including a home directory and a description (or comment) that reads "Clarusway Account Number1" in one single command using "useradd" 
+2. Create a user named clarus2, including home directory, bash shell, a description that reads "Clarusway Account Number2" in one single command using "useradd" 
+3. Create a user named "clarus3" using "adduser" 
+4. Verify that both users have correct entries in /etc/passwd, /etc/shadow and /etc/group. 
+5. Verify that their home directory was created.
+6. Create a file named welcome.txt and make sure every new user will see this file in their home directory. Create a new user clarus4, including a home directory using "useradd" and verify welcome.txt in the home directory.
+7. Change the default login shell for the clarus4 user to any other shell. Verify before and after you make this change.
+8. Set the password for clarus1 to 123.
+9. Remove clarus1 user with its home directory.
+1. sudo useradd -m -c 'Clarusway Account Number1' clarus1
+2. sudo useradd -m -c 'Clarusway Account Number2' -s /bin/bash clarus2
+3. sudo adduser clarus3
+4. grep clarus /etc/passwd
+   grep clarus /etc/shadow
+   grep clarus /etc/group
+5. ls -l /home | grep clarus
+6. sudo su
+   echo "Welcome New User" > /etc/skel/welcome.txt
+   sudo adduser clarus4
+   sudo cat /home/clarus4/welcome.txt
+7. grep clarus1 /etc/passwd
+   sudo usermod -s /bin/bash clarus1
+   grep clarus1 /etc/passwd
+8. passwd clarus1
+   sudo!!
+9. sudo userdel -r clarus1
+
+Example-7 (filters)(HIGH-INTERMEDIATE):
+1. Make a list of all filenames in /etc that contain the string conf in their filename.
+2. Make a sorted list of all files in /etc that contain the case insensitive string conf in their filename.
+3. Get bash users info and save it in a file in home directory
+4. Write the number of bash users.
+5. Only get bash usernames  and sort them.
+6. Find all files with .conf extension within maximum directory depth of 3. Case isn't important. View the results page by page with dynamic load.
+1. ls /etc | grep conf
+2. ls /etc | grep -i conf | sort
+3. grep bash /etc/passwd  > bash-users.txt
+4. grep bash /etc/passwd | wc -l
+5. cat bash-users.txt | cut -d: -f1 | sort
+6. find / -maxdepth 3 -type f -iname *.conf |less 

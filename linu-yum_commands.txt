@@ -1,0 +1,41 @@
+Linux Plus 04/05/2020
+
+sudo yum install git      #install git
+sudo yum -y install git   #install git w/o asking question
+sudo yum remove git       #uninstall git
+sudo yum autoremove git   #uninstall git with all unused dependencies and configurations.
+sudo yum update git       #updated git
+sudo yum update           #updates all installed packages
+sudo yum list			  #list all available packages
+sudo yum list git		  #list available git package
+sudo yum info git		  #gives information about git package 
+sudo yum list installed   #list all installed packages
+sudo yum --showduplicates list git   #list all available git versions
+sudo yum install git-2.14.5          #install git version 2.14.5
+
+Excercise 1
+Update all installed packages
+List all installed packages starts with http
+Find all available packages starts with http
+Install httpd if available. (Skip confirmations during installation)
+List installed httpd package
+Remove httpd
+List installed httpd package
+
+Solution:
+  263  sudo yum update
+  264  sudo yum list installed http*
+  265  sudo yum list http*
+  267  sudo yum -y install httpd
+  269  sudo yum list installed http*
+  270  sudo yum remove httpd
+  271  sudo yum list installed http*
+
+Excercise 2:
+Uninstall git with all unused dependencies 
+Check installed git
+Find previous available git version
+Install previous available git version
+Check installed git version
+Update git to the latest version
+Check installed git version
