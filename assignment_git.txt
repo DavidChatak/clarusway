@@ -1,0 +1,64 @@
+
+  507  echo "SHOPPING LIST:
+1- BREAD
+2- CHEESE
+3- WATER
+4- OLIVE
+5- NEWSPAPER
+7- TOMATO PASTE
+8- DETERGENT
+9- OIL
+10- EGG" > shoppinglist.txt
+  508  ls
+  509  cat shoppinglist.txt 
+  510  mv shoppinglist.txt ./SHOP_LIST_DIR/
+  511  LS
+  512  ls
+  513  cd SHOP_LIST_DIR
+  514  cat SHOP_LIST_DIR 
+  515  clear
+  516  git status
+  517  mv login.sh 
+  518  rm login.sh 
+  519  mv SHOP_LIST_DIR shoppingList.txt
+  520  ls
+  521  git status
+  522  clear
+  523  git add shoppingList.txt 
+  524  git commit -m "committing shoppig list to GIT"
+  525  sudo git commit -m "committing shoppig list to GIT"
+  526  git status
+  527  echo "11- toys for kids" >> shoppingList.txt 
+  528  echo "12- umbrella" >> shoppingList.txt 
+  529  git add shoppingList.txt 
+  530  git status
+  531  sudo git commit -m "two items added to the list COMMIT"
+  532  git status
+  533  git branch Mary
+  534  sudo git branch mary
+  535  git checkout mary
+  536  sudo git checkout mary
+  537  git status
+  538  cat shoppingList.txt 
+  539  echo "13-story books and notebook for mary" >> shoppingList.txt 
+  540  sudo git commit -am "mary's first commit"
+  541  git checkout master
+  542  git status
+  543  cat shoppingList.txt 
+  544  git merge mary master
+  545  cat shoppingList.txt 
+  546  git branch -d mary
+  547  git branch -D mary
+  548  cat shoppingList.txt 
+  549  git log
+  550  git checkout f54ef56a1658757cc492253533e8f604a62c3d79
+  551  cat sh
+  552  cat shoppingList.txt 
+  553  git checkout f0e07c2
+  554  git status
+  555  git reset HEAD shoppingList.txt
+  556  git status
+  557  cat shoppingList.txt 
+  558  git checkout f0e07c2
+  559  cat shoppingList.txt 
+  560  history > /mnt/c/Users/smeng/Desktop/assignment_git.txt
