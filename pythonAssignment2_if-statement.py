@@ -1,4 +1,4 @@
-#pythonAssignment2_if-statement.py
+#https://github.com/DavidChatak/clarusway/blob/master/pythonAssignment2_if-statement.py
 
 age = input("Are you a cigarette addict older than 75 years old? (Yes/No)>>")
 chronic = input("Do you have a severe chronic disease? (Yes/No)>>")
