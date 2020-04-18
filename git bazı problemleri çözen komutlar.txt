@@ -1,0 +1,7 @@
+
+git config --global http.sslverify "false"
+git config --system http.sslcainfo /bin/curl-ca-bundle.crt
+
+
+git config --global rebase.autoStash true
+git config --global pull.rebase true
