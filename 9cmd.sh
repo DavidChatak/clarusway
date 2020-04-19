@@ -1,6 +1,14 @@
 #! /bin/bash
-for  number in  Ahmt mehmet aki veli
+#names="ahmet mehmet ali veli selami"
+#for  name in  $names
+#do
+#	echo hello  $name
+#	echo ""
+#done
+
+for num in {1..20..2}
 do
-	echo hello  $number
-	echo ""
+	read -p "enter name:" name
+	echo $num, $name
 done
+
