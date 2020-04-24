@@ -1,0 +1,8 @@
+number = 14
+for i in range(2, number):
+    if number%i == 0:
+        (f"{number} is not a prime number.")
+        break
+
+print((f"{number} is not a prime number.") or
+      (f"{number} is a prime number."))
